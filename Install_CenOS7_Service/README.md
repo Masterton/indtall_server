@@ -172,6 +172,67 @@ server {
 
 ## 安装PHP（5.6n）和PHP-fpm
 
+> * 1、检查当前安装的PHP包
+
+  >> yum list installed | grep php (查看当前的PHP安装包)
+  >> yum remove (删除指定的包)
+  >> php -m 查看安装的PHP扩展
+  
+> * 2、添加Remi源
+
+  >> http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+  
+  >> Remi源默认是没有启用的，我们来启用Remi源，修改 /etc/yum.repos.d/remi.repo 文件，把文件内的 enabled=0 改为 enabled=1 ，注意：改文件内有2个 enabled=0 我们修改[remi]下面的，不要修改[remi-test]下面的。
+  
+> * 3、运行 yum install 安装PHP和PHP扩展
+
+  >> yum install php56w.x86_64
+  >> yum install php56w-fpm
+  >> yum install php56w-cli.x86_64
+  >> yum install php56w-common.x86_64
+  >> yum install php56w-gd.x86_64
+  >> yum install php56w-ldap.x86_64
+  >> yum install php56w-mbstring.x86_64
+  >> yum install php56w-mcrypt.x86_64
+  >> yum install php56w-mysql.x86_64
+  >> yum install php56w-pdo.x86_64
+  
+> * 4、安装xmlwriter、xmlreader
+
+  >> 1、查看libxml、libxml2包安装没
+  >> php -i | grep "xml"
+  
+```
+/etc/php.d/20-simplexml.ini,
+/etc/php.d/20-xml.ini,
+/etc/php.d/20-xmlwriter.ini,
+/etc/php.d/30-xmlreader.ini,
+xmlrpc_error_number => 0 => 0
+xmlrpc_errors => Off => Off
+PHP Warning:  Unknown: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone. in Unknown on line 0
+libxml Version => 2.9.1
+libxml
+mbstring.http_output_conv_mimetypes => ^(text/|application/xhtml\+xml) => ^(text/|application/xhtml\+xml)
+Simplexml support => enabled
+xml
+libxml2 Version => 2.9.1
+xmlreader
+xmlwriter
+libxslt compiled against libxml Version => 2.9.1
+
+```
+
+  >> 如果没安装就安装 yum install libxml2
+  >> yum install php-xmlwriter
+  >> yum install php-xmlreader
+  >> yum install php-xml
+  
+> * 5、设置开机启动、启动、重启
+
+  >> systemctl start php-fpm.servise
+  >> systemctl restart php-fpm.servise
+  >> systemctl enable php-fpm.servise
+
 ------
 
 ## 安装(MySQL)
