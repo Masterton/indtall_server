@@ -100,3 +100,39 @@ node -v
 ```
 
 ### 5、简单使用 node.js
+
+> 1、新建 server.js 代码如下：
+
+
+```javascript
+var http = require('http');
+
+http.createServer(function (request, response) {
+
+	// 发送 HTTP 头部 
+	// HTTP 状态值: 200 : OK
+	// 内容类型: text/plain
+	response.writeHead(200, {'Content-Type': 'text/plain'});
+
+	// 发送响应数据 "Hello World"
+	response.end('Hello World\n');
+}).listen(8888);
+
+// 终端打印如下信息
+console.log('Server running at http://127.0.0.1:8888/');
+```
+
+> 2、使用 node 命令执行以上的代码：
+
+```
+node server.js
+Server running at http://127.0.0.1:8888/
+```
+
+![](http://www.runoob.com/wp-content/uploads/2014/03/cmdrun.jpg)
+
+> 3、接下来，打开浏览器访问 http://127.0.0.1:8888/，你会看到一个写着 "Hello World"的网页。
+
+![](http://www.runoob.com/wp-content/uploads/2014/03/nodejs-helloworld.jpg)
+
+> 4、具体使用请查看 [Node.js 教程](http://www.runoob.com/nodejs/nodejs-tutorial.html)
