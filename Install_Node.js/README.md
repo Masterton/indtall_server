@@ -13,5 +13,3 @@
 
 > **下载windows版的**
 > ![](http://www.runoob.com/wp-content/uploads/2014/03/download-page.jpg)
-
-> test
