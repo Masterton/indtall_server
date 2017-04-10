@@ -8,7 +8,13 @@
 > * 如果显示 selinux status = enable，则将selinux设置为disable
 > * vim /etc/sysconfig/selinux 进入文件
 > * 把 SELINUX=enabled 改为 SELINUX=disabled
-> * 重启系统 shutdown -r now
+
+```
+# 重启系统 
+shutdown -r now 
+# 关机
+poweroff
+```
 
 ------
 
@@ -16,20 +22,26 @@
 
 > * 1、下载repo文件
 
-  >> wget http://mirrors.aliyun.com/repo/Centos-7.repo
+```
+wget http://mirrors.aliyun.com/repo/Centos-7.repo
+```
   
 > * 2、备份并替换系统的repo文件
 
-  >> cp Centos-7.repo /etc/yum.repo.d/
-  >> cd /etc/yum.repos.d/
-  >> mv CentOS-Base.repo CentOS-Base.repo.bak
-  >> mv Centos-7.repo CentOS-Base.repo
+```
+cp Centos-7.repo /etc/yum.repo.d/
+cd /etc/yum.repos.d/
+mv CentOS-Base.repo CentOS-Base.repo.bak
+mv Centos-7.repo CentOS-Base.repo
+```
   
 > * 3、执行yum源更新命令 
 
-  >> yum clean all
-  >> yum makecache
-  >> yum update
+```
+yum clean all
+yum makecache
+yum update
+```
   
 ------
 
@@ -38,35 +50,47 @@
 > * 1、gcc 安装
 
   >> 编译依赖 gcc 环境
-  
-  >> yum install gcc-c++
+
+```
+yum install gcc-c++
+```
   
 > * 2、PCRE pcre-devel 安装
 
   >> PCRE(Perl Compatible Regular Expressions) 是一个Perl库，包括 perl 兼容的正则表达式库。nginx 的 http 模块使用 pcre 来解析正则表达式，所以需要在 linux 上安装 pcre 库，pcre-devel 是使用 pcre 开发的一个二次开发库。
 
-  >> yum install -y pcre pcre-devel
+```
+yum install -y pcre pcre-devel
+```
   
 > * 3、zlib 安装
 
   >> zlib 库提供了很多种压缩和解压缩的方式， nginx 使用 zlib 对 http 包的内容进行 gzip
-  
-  >> yum install -y zlib zlib-devel
+
+```
+yum install -y zlib zlib-devel
+```
   
 > * 4、OpenSSL 安装
 
   >> OpenSSL 是一个强大的安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及 SSL 协议，并提供丰富的应用程序供测试或其它目的使用。
   >> nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http），所以需要在 Centos 安装 OpenSSL 库。
 
-  >> yum install -y openssl openssl-devel
+```
+yum install -y openssl openssl-devel
+```
   
 > * 5、安装nginx源
 
-  >> rpm -ivh nginx-release-centos-7-0.el7.ngx.noarch.rpm
+```
+rpm -ivh nginx-release-centos-7-0.el7.ngx.noarch.rpm
+```
   
 > * 6、安装nginx
 
-  >> yum -y install nginx
+```
+yum -y install nginx
+```
 
 > * 7、配置nginx
 
@@ -109,7 +133,7 @@ http {
   
   >> /etc/nginx/conf.d/default.conf 配置文件代码（如下）
 
-```default.conf
+```
 server {
     listen       80;
     server_name  localhost;
@@ -164,9 +188,11 @@ server {
   
 > * 9、启动、重启、设置开机启动
 
-  >> systemctl start nginx.servise
-  >> systemctl restart nginx.servise
-  >> systemctl enable nginx.servise
+```
+systemctl start nginx.servise ##启动服务
+systemctl restart nginx.servise ##重启服务
+systemctl enable nginx.servise ##添加到开机启动服务中去
+```
 
 ------
 
@@ -174,9 +200,11 @@ server {
 
 > * 1、检查当前安装的PHP包
 
-  >> yum list installed | grep php (查看当前的PHP安装包)
-  >> yum remove (删除指定的包)
-  >> php -m 查看安装的PHP扩展
+```
+yum list installed | grep php (查看当前的PHP安装包)
+yum remove (删除指定的包)
+php -m 查看安装的PHP扩展
+```
   
 > * 2、添加Remi源
 
@@ -186,21 +214,26 @@ server {
   
 > * 3、运行 yum install 安装PHP和PHP扩展
 
-  >> yum install php56w.x86_64
-  >> yum install php56w-fpm
-  >> yum install php56w-cli.x86_64
-  >> yum install php56w-common.x86_64
-  >> yum install php56w-gd.x86_64
-  >> yum install php56w-ldap.x86_64
-  >> yum install php56w-mbstring.x86_64
-  >> yum install php56w-mcrypt.x86_64
-  >> yum install php56w-mysql.x86_64
-  >> yum install php56w-pdo.x86_64
+```
+yum install php56w.x86_64
+yum install php56w-fpm
+yum install php56w-cli.x86_64
+yum install php56w-common.x86_64
+yum install php56w-gd.x86_64
+yum install php56w-ldap.x86_64
+yum install php56w-mbstring.x86_64
+yum install php56w-mcrypt.x86_64
+yum install php56w-mysql.x86_64
+yum install php56w-pdo.x86_64
+```
   
 > * 4、安装xmlwriter、xmlreader
 
   >> 1、查看libxml、libxml2包安装没
-  >> php -i | grep "xml"
+
+```
+php -i | grep "xml"
+```
   
 ```
 /etc/php.d/20-simplexml.ini,
@@ -223,21 +256,46 @@ libxslt compiled against libxml Version => 2.9.1
 ```
 
   >> 如果没安装就安装 yum install libxml2
-  >> yum install php-xmlwriter
-  >> yum install php-xmlreader
-  >> yum install php-xml
+
+```
+yum install php-xmlwriter
+yum install php-xmlreader
+yum install php-xml
+```
   
 > * 5、设置开机启动、启动、重启
 
-  >> systemctl start php-fpm.servise
-  >> systemctl restart php-fpm.servise
-  >> systemctl enable php-fpm.servise
+```
+systemctl start php-fpm.servise
+systemctl restart php-fpm.servise
+systemctl enable php-fpm.servise
+```
 
 ------
 
 ## 安装(MySQL)
 
 ------
+
+> 1、在MySQL官网中下载YUM源rpm安装包：
+  >> http://dev.mysql.com/downloads/repo/yum/ 
+
+![](http://www.centoscn.com/uploads/allimg/160626/1-160626010PSQ.jpg)
+
+```
+// 下载 MySQL 源安装包
+wget http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+// 安装 MySQL 
+yum localinstall mysql57-community-release-el7-9.noarch.rpm
+// 检查 MySQL 源是否安装成功
+yum repolist enabled | grep "mysql.*-community.*"
+```
+
+> 2、安装MySQL
+
+```
+yum install mysql-community-server
+```
 
 ## 安装(ssl或openssl)
 
@@ -246,3 +304,38 @@ libxslt compiled against libxml Version => 2.9.1
 ## 设置防火墙（打开22、80、3306端口）
 
 ------
+
+> 1.CentOS7 下默认使用的防火墙是 **firewall**
+
+```
+firewall-cmd --state //查看运行状态
+//开放8080端口
+firewall-cmd --add-port=8080/tcp permanent
+// 重载生效刚才的端口设置
+firewall-cmd --reload
+// 另一种
+firewall-cmd --permanent --zone=public --add-port=22/tcp
+firewall-cmd --permanent --zone=public --add-port=80/tcp
+firewall-cmd --permanent --zone=public --add-port=3306/tcp
+```
+
+> 2.firewall 常用命令如下：
+
+```
+##常用命令介绍
+firewall-cmd --state ##查看防火墙状态，是否是running
+firewall-cmd --reload ##重新载入配置，比如添加规则之后，需要执行此命令
+firewall-cmd --get-zones ##列出支持的zone
+firewall-cmd --get-services ##列出支持的服务，在列表中的服务是放行的
+firewall-cmd --query-service ftp ##查看ftp服务示范支持，返回yes或者no
+firewall-cmd --add-service=ftp ##临时开放ftp服务
+firewall-cmd --add-service=ftp --permanent ##永久开放ftp服务
+firewall-cmd --remove-service=ftp --permanent ##永久一处ftp服务
+firewall-cmd --add-port=80/tcp --permanten ##永久添加80端口
+iptables -L -n ##查看规则，这个命令是和iptables的相同的
+man firewall-cmd ##查看帮助
+firewall-cmd --list-all-zones ##查看所有的zone信息
+firewall-cmd --add-service=http ##暂时开放http
+firewall-cmd --permanent --add-service=http ##永久开放http
+firewall-cmd --zone=public --add-port=80/tcp --permanent ##在public中永久开放80端口
+firewall-cmd --list-all ##查看防火墙开启了那些服务和端口
