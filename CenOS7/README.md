@@ -294,7 +294,220 @@ yum repolist enabled | grep "mysql.*-community.*"
 > 2、安装MySQL
 
 ```
-yum install mysql-community-server
+[root@iZ28gvqe4biZ ~]# yum -y install mysql-community-server
+已加载插件：langpacks
+正在解决依赖关系
+--> 正在检查事务
+---> 软件包 mysql-community-server.x86_64.0.5.6.28-2.el7 将被 安装
+--> 正在处理依赖关系 mysql-community-common(x86-64) = 5.6.28-2.el7，它被软件包 mysql-community-server-5.6.28-2.el7.x86_64 需要
+--> 正在处理依赖关系 mysql-community-client(x86-64) = 5.6.28-2.el7，它被软件包 mysql-community-server-5.6.28-2.el7.x86_64 需要
+--> 正在处理依赖关系 perl(DBI)，它被软件包 mysql-community-server-5.6.28-2.el7.x86_64 需要
+--> 正在检查事务
+---> 软件包 mysql-community-client.x86_64.0.5.6.28-2.el7 将被 安装
+--> 正在处理依赖关系 mysql-community-libs(x86-64) = 5.6.28-2.el7，它被软件包 mysql-community-client-5.6.28-2.el7.x86_64 需要
+---> 软件包 mysql-community-common.x86_64.0.5.6.28-2.el7 将被 安装
+---> 软件包 perl-DBI.x86_64.0.1.627-4.el7 将被 安装
+--> 正在处理依赖关系 perl(RPC::PlServer) >= 0.2001，它被软件包 perl-DBI-1.627-4.el7.x86_64 需要
+--> 正在处理依赖关系 perl(RPC::PlClient) >= 0.2000，它被软件包 perl-DBI-1.627-4.el7.x86_64 需要
+--> 正在检查事务
+---> 软件包 mariadb-libs.x86_64.1.5.5.40-1.el7_0 将被 取代
+---> 软件包 mysql-community-libs.x86_64.0.5.6.28-2.el7 将被 舍弃
+---> 软件包 perl-PlRPC.noarch.0.0.2020-14.el7 将被 安装
+--> 正在处理依赖关系 perl(Net::Daemon) >= 0.13，它被软件包 perl-PlRPC-0.2020-14.el7.noarch 需要
+--> 正在处理依赖关系 perl(Net::Daemon::Test)，它被软件包 perl-PlRPC-0.2020-14.el7.noarch 需要
+--> 正在处理依赖关系 perl(Net::Daemon::Log)，它被软件包 perl-PlRPC-0.2020-14.el7.noarch 需要
+--> 正在处理依赖关系 perl(Compress::Zlib)，它被软件包 perl-PlRPC-0.2020-14.el7.noarch 需要
+--> 正在检查事务
+---> 软件包 perl-IO-Compress.noarch.0.2.061-2.el7 将被 安装
+--> 正在处理依赖关系 perl(Compress::Raw::Zlib) >= 2.061，它被软件包 perl-IO-Compress-2.061-2.el7.noarch 需要
+--> 正在处理依赖关系 perl(Compress::Raw::Bzip2) >= 2.061，它被软件包 perl-IO-Compress-2.061-2.el7.noarch 需要
+---> 软件包 perl-Net-Daemon.noarch.0.0.48-5.el7 将被 安装
+--> 正在检查事务
+---> 软件包 perl-Compress-Raw-Bzip2.x86_64.0.2.061-3.el7 将被 安装
+---> 软件包 perl-Compress-Raw-Zlib.x86_64.1.2.061-4.el7 将被 安装
+--> 解决依赖关系完成
+
+依赖关系解决
+
+==============================================================================================
+ Package                       架构         版本                源                       大小
+==============================================================================================
+正在安装:
+ mysql-community-libs          x86_64       5.6.28-2.el7        mysql56-community       2.0 M
+      替换  mariadb-libs.x86_64 1:5.5.40-1.el7_0
+ mysql-community-server        x86_64       5.6.28-2.el7        mysql56-community        58 M
+为依赖而安装:
+ mysql-community-client        x86_64       5.6.28-2.el7        mysql56-community        19 M
+ mysql-community-common        x86_64       5.6.28-2.el7        mysql56-community       256 k
+ perl-Compress-Raw-Bzip2       x86_64       2.061-3.el7         base                     32 k
+ perl-Compress-Raw-Zlib        x86_64       1:2.061-4.el7       base                     57 k
+ perl-DBI                      x86_64       1.627-4.el7         base                    802 k
+ perl-IO-Compress              noarch       2.061-2.el7         base                    260 k
+ perl-Net-Daemon               noarch       0.48-5.el7          base                     51 k
+ perl-PlRPC                    noarch       0.2020-14.el7       base                     36 k
+
+事务概要
+==============================================================================================
+安装  2 软件包 (+8 依赖软件包)
+
+总下载量：80 M
+Downloading packages:
+警告：/var/cache/yum/x86_64/7/mysql56-community/packages/mysql-community-common-5.6.28-2.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+mysql-community-common-5.6.28-2.el7.x86_64.rpm 的公钥尚未安装
+(1/10): mysql-community-common-5.6.28-2.el7.x86_64.rpm                 | 256 kB  00:00:14     
+(2/10): mysql-community-libs-5.6.28-2.el7.x86_64.rpm                   | 2.0 MB  00:02:57     
+(3/10): perl-Compress-Raw-Zlib-2.061-4.el7.x86_64.rpm                  |  57 kB  00:00:00     
+(4/10): perl-Compress-Raw-Bzip2-2.061-3.el7.x86_64.rpm                 |  32 kB  00:00:00     
+(5/10): perl-IO-Compress-2.061-2.el7.noarch.rpm                        | 260 kB  00:00:00     
+(6/10): perl-Net-Daemon-0.48-5.el7.noarch.rpm                          |  51 kB  00:00:00     
+(7/10): perl-PlRPC-0.2020-14.el7.noarch.rpm  
+(8/10): perl-DBI-1.627-4.el7.x86_64.rpm                                | 802 kB  00:00:00     
+(9/10): mysql-community-server-5.6.28-2.el7.x86_64.rpm                 |  58 MB  00:54:45     
+(10/10): mysql-community-client-5.6.28-2.el7.x86_64.rpm                |  19 MB  00:20:42     
+总计                                                           13 kB/s |  80 MB  01:45:50     
+从 file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql 检索密钥
+导入 GPG key 0x5072E1F5:
+ 用户ID     : "MySQL Release Engineering <mysql-build@oss.oracle.com>"
+ 指纹       : a4a9 4068 76fc bd3c 4567 70c8 8c71 8d3b 5072 e1f5
+ 软件包     : mysql-community-release-el7-5.noarch (installed)
+ 来自       : file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+警告：RPM 数据库已被非 yum 程序修改。
+  正在安装    : mysql-community-common-5.6.28-2.el7.x86_64                               1/11 
+  正在安装    : mysql-community-libs-5.6.28-2.el7.x86_64                                 2/11 
+  正在安装    : mysql-community-client-5.6.28-2.el7.x86_64                               3/11 
+  正在安装    : 1:perl-Compress-Raw-Zlib-2.061-4.el7.x86_64                              4/11 
+  正在安装    : perl-Net-Daemon-0.48-5.el7.noarch                                        5/11 
+  正在安装    : perl-Compress-Raw-Bzip2-2.061-3.el7.x86_64                               6/11 
+  正在安装    : perl-IO-Compress-2.061-2.el7.noarch                                      7/11 
+  正在安装    : perl-PlRPC-0.2020-14.el7.noarch                                          8/11 
+  正在安装    : perl-DBI-1.627-4.el7.x86_64                                              9/11 
+  正在安装    : mysql-community-server-5.6.28-2.el7.x86_64                              10/11 
+  正在删除    : 1:mariadb-libs-5.5.40-1.el7_0.x86_64                                    11/11 
+  验证中      : perl-Compress-Raw-Bzip2-2.061-3.el7.x86_64                               1/11 
+  验证中      : perl-Net-Daemon-0.48-5.el7.noarch                                        2/11 
+  验证中      : mysql-community-common-5.6.28-2.el7.x86_64                               3/11 
+  验证中      : perl-IO-Compress-2.061-2.el7.noarch                                      4/11 
+  验证中      : mysql-community-libs-5.6.28-2.el7.x86_64                                 5/11 
+  验证中      : mysql-community-client-5.6.28-2.el7.x86_64                               6/11 
+  验证中      : 1:perl-Compress-Raw-Zlib-2.061-4.el7.x86_64                              7/11 
+  验证中      : perl-DBI-1.627-4.el7.x86_64                                              8/11 
+  验证中      : mysql-community-server-5.6.28-2.el7.x86_64                               9/11 
+  验证中      : perl-PlRPC-0.2020-14.el7.noarch                                         10/11 
+  验证中      : 1:mariadb-libs-5.5.40-1.el7_0.x86_64                                    11/11 
+
+已安装:
+  mysql-community-libs.x86_64 0:5.6.28-2.el7   mysql-community-server.x86_64 0:5.6.28-2.el7  
+
+作为依赖被安装:
+  mysql-community-client.x86_64 0:5.6.28-2.el7  mysql-community-common.x86_64 0:5.6.28-2.el7 
+  perl-Compress-Raw-Bzip2.x86_64 0:2.061-3.el7  perl-Compress-Raw-Zlib.x86_64 1:2.061-4.el7  
+  perl-DBI.x86_64 0:1.627-4.el7                 perl-IO-Compress.noarch 0:2.061-2.el7        
+  perl-Net-Daemon.noarch 0:0.48-5.el7           perl-PlRPC.noarch 0:0.2020-14.el7            
+
+替代:
+  mariadb-libs.x86_64 1:5.5.40-1.el7_0                                                        
+
+完毕！
+```
+
+> 3、启动MySQL服务
+
+```
+systemctl enable mysqld #加入开机启动
+systemctl start mysqld #启动MySQL服务
+systemctl restart mysqld #重启MySQL服务
+```
+
+> 4、重置密码
+
+```
+[root@iZ28gvqe4biZ ~]# mysql_secure_installation
+
+
+
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MySQL
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MySQL to secure it, we'll need the current
+password for the root user.  If you've just installed MySQL, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none): 
+OK, successfully used password, moving on...
+
+Setting the root password ensures that nobody can log into the MySQL
+root user without the proper authorisation.
+
+Set root password? [Y/n] y        [设置root用户密码]
+New password: 
+Re-enter new password: 
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+By default, a MySQL installation has an anonymous user, allowing anyone
+to log into MySQL without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n] y            [删除匿名用户]
+ ... Success!
+
+Normally, root should only be allowed to connect from 'localhost'.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n] n            [禁止root远程登录]
+ ... skipping.
+
+By default, MySQL comes with a database named 'test' that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n] y       [删除test数据库]
+ - Dropping test database...
+ERROR 1008 (HY000) at line 1: Can't drop database 'test'; database doesn't exist
+ ... Failed!  Not critical, keep moving...
+ - Removing privileges on test database...
+ ... Success!
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n] y        [刷新权限]
+ ... Success!
+
+
+
+
+All done!  If you've completed all of the above steps, your MySQL
+installation should now be secure.
+
+Thanks for using MySQL!
+
+
+Cleaning up...
+```
+
+```
+//登录MYSQL（有ROOT权限）。这里我以ROOT身份登录
+[root@iZ28gvqe4biZ ~]# mysql -u root -p
+//首先为用户创建一个数据库hivemeta
+mysql  > create database hivemeta;
+mysql  > use hivemeta
+//授权hdp用户拥有hivemeta数据库的所有权限。
+mysql  > grant all privileges on *.* to hdp@"%" identified by "hdp" with grant option;
+//刷新系统权限表
+mysql  > flush privileges;
+mysql  > use hivemeta;
+//mysql/hive字符集问题
+mysql  > alter database hivemeta character set latin1;
 ```
 
 ## 安装(ssl或openssl)
