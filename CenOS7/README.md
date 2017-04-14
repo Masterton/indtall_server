@@ -208,7 +208,11 @@ php -m 查看安装的PHP扩展
   
 > * 2、添加Remi源
 
-  >> http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+```
+http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+```
   
   >> Remi源默认是没有启用的，我们来启用Remi源，修改 /etc/yum.repos.d/remi.repo 文件，把文件内的 enabled=0 改为 enabled=1 ，注意：改文件内有2个 enabled=0 我们修改[remi]下面的，不要修改[remi-test]下面的。
   
