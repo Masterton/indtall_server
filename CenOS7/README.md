@@ -429,6 +429,8 @@ systemctl restart mysqld #重启MySQL服务
 > 4、重置密码
 
 ```
+#查看默认mysql密码
+[root@iZ28gvqe4biZ ~]# grep 'temporary password' /var/log/mysqld.log
 [root@iZ28gvqe4biZ ~]# mysql_secure_installation
 
 
