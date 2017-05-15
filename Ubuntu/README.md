@@ -114,6 +114,7 @@ sudo apt-get clean && sudo apt-get autoclean 清理无用的包
 sudo apt-get check 检查是否有损坏的依赖
 ```
 
+```
 apt-cache search mysql
 apt-get install mysql-server
 apt-get purge mysql-server
@@ -121,3 +122,4 @@ apt-get purge mysql-server
 apt-get update
 apt-get upgrade
 apt-get install -f
+```
