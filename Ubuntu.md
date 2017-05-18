@@ -108,6 +108,13 @@ ufw allow|deny 8080
 ufw enable/disable
 ```
 
+[查询资料](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
+```
+# 安装最新的node.js
+curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
 ------
 
 ```
