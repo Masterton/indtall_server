@@ -86,6 +86,8 @@ apt install mysql-server mysql-client
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'youpassword' WITH GRANT OPTION;
 # 重载授权表：
 FLUSH PRIVILEGES;
+# 卸载mysql及依赖
+apt purge mysql-*
 ```
 
 ```
